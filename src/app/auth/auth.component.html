@@ -1,0 +1,47 @@
+<div class="row ">
+  <div class="col-xs-12 col-md-8 col-md-offset-3 justify-content-center " style="margin: 20px">
+<!--    <div class="alert alert-danger" *ngIf="error">-->
+<!--      <p>{{error}}</p>-->
+<!--    </div>-->
+    <div *ngIf="isLoading" style="text-align: center">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+      <!-- Username input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="username">User Name</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          name="username"
+          ngModel
+          required
+        />
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          name="password"
+          ngModel
+          required
+          minlength="6"
+        />
+      </div>
+
+      <!-- Submit button -->
+      <button
+        type="submit"
+        class="btn btn-primary btn-block mb-4"
+        [disabled]="!authForm.valid"
+      >
+        Sign in
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<a
+  class="card"
+  style="width: 15rem; height: 24rem; cursor: pointer; color: inherit; text-decoration: inherit; margin-bottom: 20px;"
+  [routerLink]="[id]"
+
+>
+  <img
+    [src]= "product.image"
+    class="card-img-top img-fluid"
+    style="height: 150px; width: 170px; margin: 10px"
+    [alt]="product.title"
+  >
+  <div class="card-body">
+    <h5 class="card-title">{{(product.title.length>24)? (product.title | slice:0:24)+'..':(product.title)}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{product.price}}</h6>
+    <p class="card-text"> {{ (product.description.length>60)? (product.description | slice:0:60)+'..':(product.description) }}</p>
+    <div class="card-subtitle mb-2 text-muted">
+      <fa-icon [icon]="faFolder"></fa-icon>
+      {{product.category}}
+    </div>
+    <i class="fa-solid fa-folder"></i>
+  </div>
+</a>
